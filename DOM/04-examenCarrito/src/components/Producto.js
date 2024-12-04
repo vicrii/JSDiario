@@ -1,21 +1,15 @@
-export default class Producto {
-    constructor(nombre, cantidad, precio) {
+export class Producto {
+    constructor(nombre, cantidad, precio){
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
     }
-    getInfo() {
-        return `Nombre: ${this.nombre}, Cantidad: ${this.cantidad}, Precio: ${this.precio}, Total: ${this.getTotal()}`;
-    }
-    getTotal() {
+
+    calcularTotal(){
         return this.cantidad * this.precio;
     }
-    setCantidad(newCantidad) {
-        this.cantidad = newCantidad;
+    obtenerInfo(){
+        return `nombre: ${this.nombre} --- cantidad: ${this.cantidad} --- precio: ${this.precio} --- total: ${this.calcularTotal()}`;
     }
-    guardarLocalStorage() {
-        localStorage.setItem("Carrito", JSON.stringify(this.productos));
-    }
-
     
 }
